@@ -1,0 +1,5 @@
+Django==2.2
+django-cors-headers
+djangorestframework
+markdown
+django-filter
