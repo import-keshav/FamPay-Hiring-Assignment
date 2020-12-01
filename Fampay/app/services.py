@@ -30,12 +30,18 @@ def youtube_search_keyword(query, max_results):
     YOUTUBE_API_SERVICE_NAME = "youtube"
     YOUTUBE_API_VERSION = "v3"
 
-    youtube_object = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
-                           developerKey=DEVELOPER_KEY)
-    search_keyword = youtube_object.search().list(q=query, part="id, snippet",
-                                                  maxResults=max_results).execute()
+    try:
+        youtube_object = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+                               developerKey=DEVELOPER_KEY)
+        search_keyword = youtube_object.search().list(q=query, part="id, snippet",
+                                                      maxResults=max_results).execute()
 
-    results = search_keyword.get("items", [])
+        results = search_keyword.get("items", [])
+    except:
+        api_keys[0].is_limit_over = True
+        api_keys[0].save()
+        return {}
+
     return results
 
 

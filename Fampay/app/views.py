@@ -21,7 +21,12 @@ class GetVideos(generics.ListAPIView):
     renderer_classes = [JSONRenderer]
     serializer_class = serializers.VideoSerializer
     pagination_class = GetVideosPagination
-    queryset = models.Video.objects.all().order_by('-publish_date_time')
+
+    def get_queryset(self):
+        api_keys = models.APIKey.objects.filter(is_limit_over=False)
+        if not len(api_keys):
+            raise forms.ValidationError("All APIKey's Quota is over, Add a new APIKey")
+        return models.Video.objects.all().order_by('-publish_date_time')
 
 
 class AddAPIKey(generics.CreateAPIView):
