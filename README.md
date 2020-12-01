@@ -8,6 +8,7 @@ Backend Assignment (Intern)
 
 <h5> API's Postman ScreenShots</h5>
 <h6> 1. Get Videos (GET Request)</h6>
+Returns all the videos order by lates published date. When you get an error <b>All APIKey's Quota is over, Add a new APIKey</b> use Add Key API (2nd point) for adding a new Youtube Data API Key in the database.
 <img src="https://user-images.githubusercontent.com/34139754/100717392-f9680700-33df-11eb-9062-5483774bac58.png">
 
 | Status  |   Time  |    Size     |
@@ -15,7 +16,8 @@ Backend Assignment (Intern)
 | 200 OK  |   66 ms |   21.85 KB  |
 
 
-<h6> 2. ADD Key (POST Request)
+<h6> 2. Add Key (POST Request)</h6>
+When you get an error <b>All APIKey's Quota is over, Add a new APIKey</b>, then use this api, for adding a new Youtube Data API Key in the database, so the service will start again, fetch and store videos in the database.
 <img src="https://user-images.githubusercontent.com/34139754/100717219-c887d200-33df-11eb-99af-035eb1eb967d.png">
 
 | Status  |   Time  |    Size     |
