@@ -3,3 +3,5 @@ django-cors-headers
 djangorestframework
 markdown
 django-filter
+google-api-python-client
+python-dateutil
